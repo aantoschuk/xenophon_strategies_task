@@ -1,8 +1,10 @@
 import { StrictMode } from "react";
 import { Helmet } from "react-helmet";
+import { Provider } from "react-redux";
 import { createRoot } from "react-dom/client";
 
 import Home from "./home/home.tsx";
+import { store } from "./redux/store.ts";
 
 import "./variables.css";
 import "./index.css";
@@ -21,6 +23,8 @@ createRoot(document.getElementById("root")!).render(
       {/* some canonical tags... */}
       <title>Chat with GPT</title>
     </Helmet>
-    <Home />
+    <Provider store={store}>
+      <Home />
+    </Provider>
   </StrictMode>
 );
